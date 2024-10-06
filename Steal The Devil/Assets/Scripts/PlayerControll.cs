@@ -96,7 +96,7 @@ public class PlayerControll : MonoBehaviour
         
         
     }
-    private void LateUpdate()
+    private void Update()
     {
         transform.Rotate(Vector3.up * rotationValue * mouseX);
     }
