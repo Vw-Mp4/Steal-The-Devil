@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Steal The Devil/Assets/Scripts/Sensibilidade.cs.meta
+guid: 4a076971b29e6e54db73421350b730b7
+========
 guid: 9b58b787c8a98884fb3e9210840d7f96
+>>>>>>>> main:Steal The Devil/Assets/Scripts/Jump.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
