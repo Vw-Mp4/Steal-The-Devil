@@ -5,7 +5,10 @@ using UnityEngine;
 
 public class Guard : MonoBehaviour
 {
+    public static event System.Action OnGuardHasSpottedPlayer;
+
     public Transform pathHolder;
+    public LayerMask viewMask;
     Transform player;
     Color originalSpotlightColour;
 
@@ -13,8 +16,11 @@ public class Guard : MonoBehaviour
     public float waitTime = .3f;
     public float turnSpeed = 90;
     public float viewDistance;
+    public float timeToSpotPlayer = .5f;
+
+
     private float viewAngle;
-    public LayerMask viewMask;
+    private float playerVisibleTimer;
 
     public Light spotlight;
 
@@ -40,11 +46,21 @@ public class Guard : MonoBehaviour
     {
         if (CanSeePlayer())
         {
-            spotlight.color = Color.red;
+            playerVisibleTimer += Time.deltaTime;
         }
         else
         {
-            spotlight.color = originalSpotlightColour;
+            playerVisibleTimer -= Time.deltaTime;
+        }
+        playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
+        spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
+
+        if(playerVisibleTimer >= timeToSpotPlayer)
+        {
+            if(OnGuardHasSpottedPlayer != null)
+            {
+                OnGuardHasSpottedPlayer();
+            }
         }
     }
 

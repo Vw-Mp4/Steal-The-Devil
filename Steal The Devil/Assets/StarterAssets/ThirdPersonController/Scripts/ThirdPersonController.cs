@@ -134,6 +134,7 @@ namespace StarterAssets
 
         private void Start()
         {
+            Guard.OnGuardHasSpottedPlayer += Disable;
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
             
             _hasAnimator = TryGetComponent(out _animator);
@@ -152,13 +153,37 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
         }
 
+        bool disable;
         private void Update()
         {
-            _hasAnimator = TryGetComponent(out _animator);
+            
 
-            JumpAndGravity();
-            GroundedCheck();
-            Move();
+            if (!disable)
+            {
+                _hasAnimator = TryGetComponent(out _animator);
+                JumpAndGravity();
+                GroundedCheck();
+                Move();
+            }
+            
+        }
+
+        private void Disable()
+        {
+            disable = true;
+
+            if (_hasAnimator)
+            {
+                _animator.SetFloat(_animIDSpeed, 0f);
+                _animator.SetFloat(_animIDMotionSpeed, 0f);
+            }
+
+            _input.move = Vector2.zero;
+        }
+
+        private void OnDestroy()
+        {
+            Guard.OnGuardHasSpottedPlayer -= Disable;
         }
 
         private void LateUpdate()
@@ -371,6 +396,8 @@ namespace StarterAssets
 
         private void OnFootstep(AnimationEvent animationEvent)
         {
+            if (disable) return;
+
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
                 if (FootstepAudioClips.Length > 0)
