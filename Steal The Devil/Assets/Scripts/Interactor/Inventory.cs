@@ -1,3 +1,4 @@
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -12,10 +13,11 @@ public class Inventory : MonoBehaviour
     public float raycastDistance = 2.0f;
     public float radiusDistance = 3.0f;
     public float circusDistanece = 2.0f;
-    float forceMagnitude = 1f;
+    float forceMagnitude = 10f;
     public GameObject chave;
     public GameObject armario;
-    Animator animator;
+    public Animator animator;
+    public StarterAssetsInputs starterAssetsInputs;
 
     private void Awake()
     {
@@ -44,17 +46,28 @@ public class Inventory : MonoBehaviour
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         Rigidbody rigidbody = hit.collider.attachedRigidbody;
-        if (rigidbody != null)
+        if (rigidbody != null && hit.collider.gameObject == armario)
         {
             
-                Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
-                forceDirection.y = 0;
-                forceDirection.z = 0;
-                forceDirection.Normalize();
-
-                rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
-            
-            
+            Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
+            forceDirection.y = 0;
+            forceDirection.z = 0;
+            forceDirection.Normalize();
+            animator.SetTrigger("isPushing");
+            rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
+            if (starterAssetsInputs.move.y <= 1 && starterAssetsInputs.sprint == false)
+            {
+                animator.ResetTrigger("isPushing");
+            }
         }
+        
     }
+
+   /* void OnAnimatorExit(AnimatorStateInfo info, int LayerIndex)
+    {
+        if (info.IsName("isPushing") && LayerIndex == 0)
+        {
+            animator.ResetTrigger("isPushing");
+        }
+    }*/
 }
