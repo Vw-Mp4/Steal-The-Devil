@@ -18,6 +18,7 @@ public class Inventory : MonoBehaviour
     public GameObject armario;
     public Animator animator;
     public StarterAssetsInputs starterAssetsInputs;
+    public Interactor interactor;
 
     private void Awake()
     {
@@ -48,26 +49,22 @@ public class Inventory : MonoBehaviour
         Rigidbody rigidbody = hit.collider.attachedRigidbody;
         if (rigidbody != null && hit.collider.gameObject == armario)
         {
-            
             Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
             forceDirection.y = 0;
             forceDirection.z = 0;
             forceDirection.Normalize();
-            animator.SetTrigger("isPushing");
-            rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
-            if (starterAssetsInputs.move.y <= 1 && starterAssetsInputs.sprint == false)
+            
+            if (starterAssetsInputs.move.y > 0 && starterAssetsInputs.sprint == true)
+            {
+                starterAssetsInputs.move.x = 0;
+                animator.SetTrigger("isPushing");
+                rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
+            }
+            else if ((starterAssetsInputs.move.y == 0 || starterAssetsInputs.sprint == false))
             {
                 animator.ResetTrigger("isPushing");
             }
         }
         
     }
-
-   /* void OnAnimatorExit(AnimatorStateInfo info, int LayerIndex)
-    {
-        if (info.IsName("isPushing") && LayerIndex == 0)
-        {
-            animator.ResetTrigger("isPushing");
-        }
-    }*/
 }
