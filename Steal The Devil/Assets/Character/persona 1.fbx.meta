@@ -1,0 +1,295 @@
+fileFormatVersion: 2
+guid: 9a801eb6c5feb5b48b76ca2f15fa6730
+ModelImporter:
+  serializedVersion: 22200
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
+    motionNodeName: 
+    rigImportErrors: "Invalid Avatar Rig Configuration. Missing or invalid transform:\n\tRequired
+      human bone 'Hips' not found\n"
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 3
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 0
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    strictVertexDataChecks: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton:
+    - name: persona 1(Clone)
+      parentName: 
+      position: {x: 0, y: 0, z: 0}
+      rotation: {x: 0, y: 0, z: 0, w: 1}
+      scale: {x: 1, y: 1, z: 1}
+    - name: corpo.001
+      parentName: persona 1(Clone)
+      position: {x: -0, y: 0, z: -16.423231}
+      rotation: {x: -0.7071067, y: 0.7071068, z: 8.6595606e-17, w: 8.4303924e-24}
+      scale: {x: 0.4708, y: 0.4708, z: 0.4708}
+    - name: camisa.001
+      parentName: persona 1(Clone)
+      position: {x: -0, y: 0, z: -16.423231}
+      rotation: {x: -0.7071067, y: 0.7071068, z: 8.6595606e-17, w: 8.4303924e-24}
+      scale: {x: 0.4708, y: 0.4708, z: 0.4708}
+    - name: cinto.001
+      parentName: persona 1(Clone)
+      position: {x: -0, y: -0.11477355, z: -16.423231}
+      rotation: {x: -0.7071067, y: 0.7071068, z: 8.6595606e-17, w: 8.4303924e-24}
+      scale: {x: 0.4708, y: 0.4708, z: 0.4708}
+    - name: "cal\xE7a.001"
+      parentName: persona 1(Clone)
+      position: {x: -0, y: 0, z: -16.423231}
+      rotation: {x: -0.7071067, y: 0.7071068, z: 8.6595606e-17, w: 8.4303924e-24}
+      scale: {x: 0.4708, y: 0.4708, z: 0.4708}
+    - name: sapatos.001
+      parentName: persona 1(Clone)
+      position: {x: 0.036562994, y: 0.23236135, z: -16.423231}
+      rotation: {x: -0.7071067, y: 0.7071068, z: 8.6595606e-17, w: 8.4303924e-24}
+      scale: {x: 0.48124477, y: 0.48124477, z: 0.48124477}
+    - name: presilha cinto.001
+      parentName: persona 1(Clone)
+      position: {x: -0.0853734, y: -4.1396565, z: -16.400808}
+      rotation: {x: 0.7927592, y: -0.609535, z: -9.589622e-18, w: -8.461277e-17}
+      scale: {x: 0.22117995, y: 0.22117995, z: 0.22117993}
+    - name: bolsa 2.001
+      parentName: persona 1(Clone)
+      position: {x: -1.3432821, y: -4.1369853, z: -17.413227}
+      rotation: {x: 0.14534815, y: 0.2891387, z: -0.0435562, w: 0.9451855}
+      scale: {x: 0.2775068, y: 0.27750683, z: 0.16832429}
+    - name: NurbsPath
+      parentName: persona 1(Clone)
+      position: {x: -0.36253065, y: 0.335998, z: -15.822023}
+      rotation: {x: 0.4199981, y: 0.41999805, z: 0.56885993, w: 0.56885993}
+      scale: {x: 0.28541088, y: 0.2854109, z: 0.2854109}
+    - name: BezierCircle
+      parentName: persona 1(Clone)
+      position: {x: -0, y: 4.4442754, z: -16.4}
+      rotation: {x: 0.5, y: -0.49999997, z: -0.5, w: -0.5}
+      scale: {x: 0.56326616, y: 0.56326616, z: 0.56326616}
+    - name: NurbsPath.001
+      parentName: persona 1(Clone)
+      position: {x: -0.8799583, y: 0.0302881, z: -16.071598}
+      rotation: {x: 0.17099656, y: 0.17099658, z: 0.6861197, w: 0.6861196}
+      scale: {x: 0.28541088, y: 0.28541088, z: 0.28541088}
+    - name: NurbsPath.002
+      parentName: persona 1(Clone)
+      position: {x: -0.27293283, y: 0.8769977, z: -16.791332}
+      rotation: {x: 0.6729311, y: 0.6729312, z: -0.21717203, w: -0.217172}
+      scale: {x: 0.27568892, y: 0.27568892, z: 0.27568892}
+    - name: NurbsPath.003
+      parentName: persona 1(Clone)
+      position: {x: -0.27293283, y: 0.8769977, z: -16.616117}
+      rotation: {x: 0.6729311, y: 0.6729312, z: -0.21717203, w: -0.217172}
+      scale: {x: 0.27568892, y: 0.27568892, z: 0.27568892}
+    - name: NurbsPath.004
+      parentName: persona 1(Clone)
+      position: {x: -0.27293283, y: 0.8769977, z: -16.437246}
+      rotation: {x: 0.6729311, y: 0.6729312, z: -0.21717203, w: -0.217172}
+      scale: {x: 0.27568892, y: 0.27568892, z: 0.27568892}
+    - name: NurbsPath.006
+      parentName: persona 1(Clone)
+      position: {x: 0.034641173, y: 0.67227566, z: -16.06556}
+      rotation: {x: 0.68118304, y: 0.68118316, z: 0.18970926, w: 0.18970923}
+      scale: {x: 0.1369098, y: 0.1369098, z: 0.1369098}
+    - name: NurbsPath.005
+      parentName: persona 1(Clone)
+      position: {x: -0.04328558, y: 0.67227566, z: -16.040796}
+      rotation: {x: 0.68118304, y: 0.68118316, z: 0.18970926, w: 0.18970923}
+      scale: {x: 0.1369098, y: 0.1369098, z: 0.1369098}
+    - name: NurbsPath.007
+      parentName: persona 1(Clone)
+      position: {x: -0.40818983, y: 0.9423227, z: -16.525358}
+      rotation: {x: 0.6729311, y: 0.6729312, z: -0.21717203, w: -0.217172}
+      scale: {x: 0.27568892, y: 0.27568892, z: 0.27568892}
+    - name: NurbsPath.008
+      parentName: persona 1(Clone)
+      position: {x: 0.0808852, y: 0.67781156, z: -16.12561}
+      rotation: {x: 0.68118304, y: 0.68118316, z: 0.18970926, w: 0.18970923}
+      scale: {x: 0.1369098, y: 0.1369098, z: 0.1369098}
+    - name: NurbsPath.012
+      parentName: persona 1(Clone)
+      position: {x: -1.4574891, y: 0.0302881, z: -16.071598}
+      rotation: {x: 0.17099656, y: 0.17099658, z: 0.6861197, w: 0.6861196}
+      scale: {x: 0.28541088, y: 0.28541088, z: 0.28541088}
+    - name: NurbsPath.014
+      parentName: persona 1(Clone)
+      position: {x: -1.7812229, y: 0.0302881, z: -16.071598}
+      rotation: {x: 0.11806152, y: 0.11806153, z: 0.69718117, w: 0.6971811}
+      scale: {x: 0.28541088, y: 0.28541088, z: 0.28541088}
+    - name: NurbsPath.011
+      parentName: persona 1(Clone)
+      position: {x: -0.35846132, y: -0.045064814, z: -17.017736}
+      rotation: {x: 0.6737819, y: 0.673782, z: -0.2145179, w: -0.21451786}
+      scale: {x: 0.28541088, y: 0.28541088, z: 0.28541088}
+    - name: NurbsPath.013
+      parentName: persona 1(Clone)
+      position: {x: 0.13968302, y: -0.045064814, z: -17.017736}
+      rotation: {x: 0.6737819, y: 0.673782, z: -0.2145179, w: -0.21451786}
+      scale: {x: 0.28541088, y: 0.28541088, z: 0.28541088}
+    - name: NurbsPath.019
+      parentName: persona 1(Clone)
+      position: {x: -0.037326574, y: 0.0302881, z: -16.719917}
+      rotation: {x: 0.6861196, y: 0.68611974, z: -0.17099647, w: -0.17099647}
+      scale: {x: 0.28541088, y: 0.28541088, z: 0.28541088}
+    - name: NurbsPath.021
+      parentName: persona 1(Clone)
+      position: {x: -0.38889185, y: 0.9855789, z: -16.44568}
+      rotation: {x: 0.58378077, y: 0.5418725, z: -0.40177044, w: -0.45183486}
+      scale: {x: 0.27568892, y: 0.27568892, z: 0.27568892}
+    - name: NurbsPath.009
+      parentName: persona 1(Clone)
+      position: {x: -0.5766536, y: 0.55768, z: -15.818613}
+      rotation: {x: 0.54169655, y: 0.54169655, z: 0.45449406, w: 0.45449406}
+      scale: {x: 0.25406173, y: 0.2540617, z: 0.2540617}
+    - name: NurbsPath.010
+      parentName: persona 1(Clone)
+      position: {x: -0.87028676, y: 0.55768, z: -15.818613}
+      rotation: {x: 0.54169655, y: 0.54169655, z: 0.45449406, w: 0.45449406}
+      scale: {x: 0.25406173, y: 0.2540617, z: 0.2540617}
+    - name: NurbsPath.015
+      parentName: persona 1(Clone)
+      position: {x: -1.5322316, y: 0.5204631, z: -16.01123}
+      rotation: {x: 0.29622033, y: 0.2962203, z: 0.6420697, w: 0.64206976}
+      scale: {x: 0.25406173, y: 0.25406173, z: 0.25406173}
+    - name: NurbsPath.016
+      parentName: persona 1(Clone)
+      position: {x: -1.5322316, y: 0.5204631, z: -16.57295}
+      rotation: {x: 0.029984022, y: 0.029984023, z: 0.7064708, w: 0.7064708}
+      scale: {x: 0.25406173, y: 0.25406173, z: 0.25406173}
+    - name: NurbsPath.017
+      parentName: persona 1(Clone)
+      position: {x: -1.2441341, y: 0.5204631, z: -16.913544}
+      rotation: {x: -0.3207194, y: -0.3207194, z: 0.6301897, w: 0.6301897}
+      scale: {x: 0.25406173, y: 0.2540617, z: 0.2540617}
+    - name: NurbsPath.018
+      parentName: persona 1(Clone)
+      position: {x: -0.64166945, y: 0.5182166, z: -16.939924}
+      rotation: {x: -0.4544941, y: -0.45449412, z: 0.54169655, w: 0.5416965}
+      scale: {x: 0.25406173, y: 0.25406173, z: 0.25406173}
+    - name: NurbsPath.020
+      parentName: persona 1(Clone)
+      position: {x: -1.1268419, y: -0.14985979, z: -16.089497}
+      rotation: {x: 0.44914806, y: 0.44914812, z: 0.54613733, w: 0.54613733}
+      scale: {x: 0.25406173, y: 0.25406173, z: 0.25406173}
+    - name: NurbsPath.022
+      parentName: persona 1(Clone)
+      position: {x: -1.2035444, y: -0.379378, z: -16.218336}
+      rotation: {x: 0.44914806, y: 0.44914812, z: 0.54613733, w: 0.54613733}
+      scale: {x: 0.25406173, y: 0.25406173, z: 0.25406173}
+    - name: NurbsPath.023
+      parentName: persona 1(Clone)
+      position: {x: -1.274015, y: -0.3895914, z: -16.32603}
+      rotation: {x: 0.32572186, y: 0.3257219, z: 0.6276188, w: 0.6276187}
+      scale: {x: 0.25406173, y: 0.25406173, z: 0.25406173}
+    - name: NurbsPath.024
+      parentName: persona 1(Clone)
+      position: {x: -1.3623676, y: -0.3895914, z: -16.578238}
+      rotation: {x: 0.22753868, y: 0.22753865, z: 0.669497, w: 0.6694969}
+      scale: {x: 0.25406173, y: 0.2540617, z: 0.2540617}
+    - name: NurbsPath.025
+      parentName: persona 1(Clone)
+      position: {x: -1.274015, y: -0.3895914, z: -16.699438}
+      rotation: {x: 0.15459971, y: 0.1545997, z: 0.6899992, w: 0.6899992}
+      scale: {x: 0.25406173, y: 0.2540617, z: 0.2540617}
+    - name: NurbsPath.026
+      parentName: persona 1(Clone)
+      position: {x: -1.1810519, y: -0.3895914, z: -16.851774}
+      rotation: {x: -0.0006992694, y: -0.0006992695, z: 0.7071065, w: 0.7071064}
+      scale: {x: 0.25406173, y: 0.25406173, z: 0.25406173}
+    - name: NurbsPath.027
+      parentName: persona 1(Clone)
+      position: {x: -0.8555198, y: -0.4629807, z: -16.883116}
+      rotation: {x: -0.24131389, y: -0.2413139, z: 0.66465604, w: 0.664656}
+      scale: {x: 0.25406173, y: 0.2540617, z: 0.2540617}
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 3
+  humanoidOversampling: 1
+  avatarSetup: 1
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  importBlendShapeDeformPercent: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -14,7 +14,8 @@ public class Interactor : MonoBehaviour
     [SerializeField] private int _numFound;
 
     private IInteractable _interactable;
-    
+    public Inventory inventory;
+
     private void Update()
     {
          _numFound = Physics.OverlapSphereNonAlloc(_interactionPoint.position, _interactionPointRadius, _colliders, _interactableMask);
@@ -28,7 +29,7 @@ public class Interactor : MonoBehaviour
                 {
                     _interactionPromptUI.SetUp(_interactable.InteractionPrompt);
                 }
-                if(Keyboard.current.eKey.wasPressedThisFrame)
+                if((Keyboard.current.eKey.wasPressedThisFrame && inventory.hasKey) || (Keyboard.current.eKey.wasPressedThisFrame && inventory.chestOpen))
                 {
                     _interactable.Interact(this);
                 }
@@ -53,4 +54,6 @@ public class Interactor : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(_interactionPoint.position, _interactionPointRadius);
     }
+
+    
 }
