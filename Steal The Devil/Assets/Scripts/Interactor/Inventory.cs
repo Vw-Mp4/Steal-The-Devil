@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,21 +17,32 @@ public class Inventory : MonoBehaviour
     float forceMagnitude = 10f;
     public GameObject chave;
     public GameObject armario;
+    public GameObject livro;
     public Animator animator;
     public StarterAssetsInputs starterAssetsInputs;
+    public Interactor interactor;
+    private ThirdPersonController thirdPersonController;
+    public float radius = 3.0f;
+    
 
     private void Awake()
     {
+        livro = GameObject.FindGameObjectWithTag("livro");
         chave = GameObject.FindGameObjectWithTag("chave");
         armario = GameObject.FindGameObjectWithTag("armario");
         chestOpen = !chestOpen;
+        
     }
+
+
     private void Update()
     {
+        
         //Se eu apertar Q, vou ter a chave.
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
             RaycastHit hit;
+            
             if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
             {
                 if (hit.collider.gameObject == chave)
@@ -39,6 +51,11 @@ public class Inventory : MonoBehaviour
                     hasKey = !hasKey;
                     Debug.DrawLine(transform.position, transform.forward);
                 }
+                if (hit.collider.gameObject == livro)
+                {
+                    Debug.Log("Está lendo livro");
+                }
+
             }
         }
     }
@@ -48,26 +65,26 @@ public class Inventory : MonoBehaviour
         Rigidbody rigidbody = hit.collider.attachedRigidbody;
         if (rigidbody != null && hit.collider.gameObject == armario)
         {
-            
             Vector3 forceDirection = hit.gameObject.transform.position - transform.position;
             forceDirection.y = 0;
             forceDirection.z = 0;
             forceDirection.Normalize();
-            animator.SetTrigger("isPushing");
-            rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
-            if (starterAssetsInputs.move.y <= 1 && starterAssetsInputs.sprint == false)
+            
+            if (starterAssetsInputs.move.y > 0 && starterAssetsInputs.sprint == true)
+            {
+                starterAssetsInputs.cursorInputForLook = false;
+                starterAssetsInputs.move.x *= 0;
+                animator.SetTrigger("isPushing");
+                rigidbody.AddForceAtPosition(forceDirection * forceMagnitude, transform.position, ForceMode.Impulse);
+            }
+            else if ((starterAssetsInputs.move.y == 0 || starterAssetsInputs.sprint == false))
             {
                 animator.ResetTrigger("isPushing");
+                starterAssetsInputs.cursorInputForLook = true;
+                
             }
+            
         }
         
     }
-
-   /* void OnAnimatorExit(AnimatorStateInfo info, int LayerIndex)
-    {
-        if (info.IsName("isPushing") && LayerIndex == 0)
-        {
-            animator.ResetTrigger("isPushing");
-        }
-    }*/
 }

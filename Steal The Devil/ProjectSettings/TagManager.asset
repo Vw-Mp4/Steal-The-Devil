@@ -10,6 +10,9 @@ TagManager:
   - bau
   - chave
   - armario
+  - gaveta
+  - gaveta2
+  - livro
   layers:
   - Default
   - TransparentFX
