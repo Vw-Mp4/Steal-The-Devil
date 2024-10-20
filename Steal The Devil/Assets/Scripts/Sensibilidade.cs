@@ -2,46 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class Sensibilidade : MonoBehaviour
 {
-    public static Sensibilidade instance;
+    public Slider sensitivitySlider;  // Referência ao slider
+    public CinemachineVirtualCamera virtualCamera;  // Referência à Cinemachine Virtual Camera
+    public Transform cameraTarget; // O alvo que a câmera segue (ou o objeto que está rotacionando com o mouse)
+    public float sensitivity = 4.0f; // Sensibilidade inicial do mouse
 
-    [SerializeField] private Slider sensitivitySlider;
-    private float mouseSensitivity;
-
-    void Awake()
-    {
-        // Verifica se já existe uma instância deste objeto
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject); // Faz o objeto persistir entre cenas
-        }
-        else
-        {
-            Destroy(gameObject); // Destroi duplicatas do objeto
-        }
-    }
+    private float mouseX, mouseY;
 
     void Start()
     {
-        // Inicializa a sensibilidade com o valor do slider
-        mouseSensitivity = sensitivitySlider.value;
+        // Definindo o valor inicial do slider como a sensibilidade atual
+        sensitivitySlider.value = sensitivity;
 
-        // Adiciona um listener ao slider para detectar mudanças no valor
-        sensitivitySlider.onValueChanged.AddListener(OnSensitivityChanged);
+        // Adiciona um listener para ajustar a sensibilidade conforme o slider for alterado
+        sensitivitySlider.onValueChanged.AddListener(AdjustSensitivity);
     }
 
-    void OnSensitivityChanged(float newSensitivity)
+    void Update()
     {
-        // Atualiza a sensibilidade do mouse quando o slider for ajustado
-        mouseSensitivity = newSensitivity;
+        // Obtém as entradas do mouse
+        mouseX = Input.GetAxis("Mouse X") * sensitivity;
+        mouseY = Input.GetAxis("Mouse Y") * sensitivity;
+
+        // Rotaciona o alvo da câmera (target), que a Cinemachine segue
+        cameraTarget.Rotate(Vector3.up, mouseX); // Rotação horizontal
+        cameraTarget.Rotate(Vector3.right, -mouseY); // Rotação vertical (invertida para dar efeito de controle natural)
     }
 
-    // Método para obter a sensibilidade atual (caso precise em outros scripts)
-    public float GetMouseSensitivity()
+    // Função para ajustar a sensibilidade com base no valor do slider
+    public void AdjustSensitivity(float newSensitivity)
     {
-        return mouseSensitivity;
+        sensitivity = newSensitivity;
     }
 }
