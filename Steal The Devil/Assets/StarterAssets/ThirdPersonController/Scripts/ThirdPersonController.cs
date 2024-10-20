@@ -19,7 +19,7 @@ namespace StarterAssets
         public float MoveSpeed = 2.0f;
 
         [Tooltip("Sprint speed of the character in m/s")]
-        public float SprintSpeed = 5.335f;
+        public float SprintSpeed = 6f;
 
         [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
@@ -177,10 +177,24 @@ namespace StarterAssets
             {
                 _animator.SetFloat(_animIDSpeed, 0f);
                 _animator.SetFloat(_animIDMotionSpeed, 0f);
+                _animator.SetBool(_animIDJump, false);
+                _animator.SetBool(_animIDFreeFall, false);
             }
 
             // Parar os sons de passos
             _input.move = Vector2.zero;
+
+            // Impedir qualquer movimentação
+            _verticalVelocity = 0;
+            _controller.enabled = false; // Desabilita o CharacterController para interromper o movimento
+
+            // Desativar o sistema de entrada do jogador
+#if ENABLE_INPUT_SYSTEM
+            _playerInput.enabled = false;  // Desativa o PlayerInput para impedir entradas adicionais
+#endif
+
+            // Opcional: Desativar a movimentação da câmera
+            LockCameraPosition = true;
         }
 
 
