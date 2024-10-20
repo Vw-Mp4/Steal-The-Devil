@@ -1,4 +1,4 @@
-﻿ using UnityEngine;
+﻿using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -136,7 +136,7 @@ namespace StarterAssets
         {
             Guard.OnGuardHasSpottedPlayer += Disable;
             _cinemachineTargetYaw = CinemachineCameraTarget.transform.rotation.eulerAngles.y;
-            
+
             _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
@@ -156,7 +156,7 @@ namespace StarterAssets
         bool disable;
         private void Update()
         {
-            
+
 
             if (!disable)
             {
@@ -165,21 +165,24 @@ namespace StarterAssets
                 GroundedCheck();
                 Move();
             }
-            
+
         }
 
         private void Disable()
         {
             disable = true;
 
+            // Parar as animações
             if (_hasAnimator)
             {
                 _animator.SetFloat(_animIDSpeed, 0f);
                 _animator.SetFloat(_animIDMotionSpeed, 0f);
             }
 
+            // Parar os sons de passos
             _input.move = Vector2.zero;
         }
+
 
         private void OnDestroy()
         {
@@ -396,8 +399,6 @@ namespace StarterAssets
 
         private void OnFootstep(AnimationEvent animationEvent)
         {
-            if (disable) return;
-
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
                 if (FootstepAudioClips.Length > 0)

@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -22,13 +22,21 @@ public class Guard : MonoBehaviour
     private float viewAngle;
     private float playerVisibleTimer;
 
+    private bool isWalking;
+
     public Light spotlight;
+
+    // Adicionando o componente Animator
+    private Animator animator;
 
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
         viewAngle = spotlight.spotAngle;
         originalSpotlightColour = spotlight.color;
+
+        // Referência ao Animator
+        animator = GetComponent<Animator>();
 
         Vector3[] waypoints = new Vector3[pathHolder.childCount];
         for (int i = 0; i < waypoints.Length; i++)
@@ -39,7 +47,6 @@ public class Guard : MonoBehaviour
         }
 
         StartCoroutine(FollowPath(waypoints));
-
     }
 
     private void Update()
@@ -47,21 +54,31 @@ public class Guard : MonoBehaviour
         if (CanSeePlayer())
         {
             playerVisibleTimer += Time.deltaTime;
+            spotlight.color = Color.red;
         }
         else
         {
             playerVisibleTimer -= Time.deltaTime;
+            spotlight.color = originalSpotlightColour;
         }
         playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
         spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
 
-        if(playerVisibleTimer >= timeToSpotPlayer)
+        if (playerVisibleTimer >= timeToSpotPlayer)
         {
-            if(OnGuardHasSpottedPlayer != null)
+            if (OnGuardHasSpottedPlayer != null)
             {
                 OnGuardHasSpottedPlayer();
             }
         }
+        // Atualiza o par�metro "isWalking" no Animator
+        animator.SetBool("IsWalking", isWalking);
+    }
+
+
+    public bool IsWalking()
+    {
+        return isWalking;
     }
 
     bool CanSeePlayer()
@@ -92,10 +109,15 @@ public class Guard : MonoBehaviour
         while (true)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetWaypoint, speed * Time.deltaTime);
+
+            // Verifica se o guarda está andando e atualiza o valor de isWalking
+            isWalking = (transform.position != targetWaypoint);
+
             if (transform.position == targetWaypoint)
             {
                 targetWaypointIndex = (targetWaypointIndex + 1) % waypoints.Length;
                 targetWaypoint = waypoints[targetWaypointIndex];
+                isWalking = false; // Para de andar enquanto espera ou gira
                 yield return new WaitForSeconds(waitTime);
                 yield return StartCoroutine(TurnToFace(targetWaypoint));
             }
@@ -115,6 +137,7 @@ public class Guard : MonoBehaviour
             yield return null;
         }
     }
+
     private void OnDrawGizmos()
     {
         Vector3 startPosition = pathHolder.GetChild(0).position;
@@ -130,3 +153,4 @@ public class Guard : MonoBehaviour
         Gizmos.DrawRay(transform.position, transform.forward * viewDistance);
     }
 }
+
