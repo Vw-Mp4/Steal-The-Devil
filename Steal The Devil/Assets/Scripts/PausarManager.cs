@@ -9,6 +9,7 @@ public class PausarManager : MonoBehaviour
     public GameObject[] arrowsOptionsMenu;
     public GameObject[] arrowsCertezaMenu;
     public GameObject[] arrowsGameOverMenu;
+    public GameObject[] arrowsControles;
 
     [SerializeField] private string nomeDoMenu;
     [SerializeField] private GameObject painelPause;
@@ -16,11 +17,13 @@ public class PausarManager : MonoBehaviour
     [SerializeField] private GameObject painelCerteza;
     [SerializeField] private GameObject painelCerteza2;
     [SerializeField] private GameObject painelGameOver;
+    [SerializeField] private GameObject painelControles;
     [SerializeField] private GameObject nomezinho;
     [SerializeField] private GameObject nomezinho2;
+    [SerializeField] private GameObject nomezinho3;
     [SerializeField] private GameObject canva;
     [SerializeField] private GameObject canva2;
-    [SerializeField] private GameObject camera;
+    // [SerializeField] private GameObject camera;
     private bool isPaused = false;
 
     
@@ -59,13 +62,13 @@ public class PausarManager : MonoBehaviour
 
                 if (isPaused)
                 {
-                    camera.SetActive(true);
+                    // camera.SetActive(true);
                     DisableArrows(arrowsPauseMenu);
                     ResumeGame();
                 }
                 else
                 {
-                    camera.SetActive(false);
+                    // camera.SetActive(false);
                     PauseGame(); 
                 }
             }
@@ -129,7 +132,7 @@ public class PausarManager : MonoBehaviour
     {
         Time.timeScale = 1;
         isPaused = false;
-        camera.SetActive(true); 
+        // camera.SetActive(true); 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -170,10 +173,26 @@ public class PausarManager : MonoBehaviour
         DisableArrows(arrowsPauseMenu);
         Time.timeScale = 1;
         isPaused = false;
-        camera.SetActive(true); 
+        //camera.SetActive(true); 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         canva.SetActive(false);
+    }
+
+    public void AbrirControles()
+    {
+        DisableArrows(arrowsOptionsMenu);
+        painelOpcoes.SetActive(false);
+        painelControles.SetActive(true);
+        nomezinho3.SetActive(true);
+    }
+
+    public void FecharControles()
+    {
+        DisableArrows(arrowsControles);
+        painelControles.SetActive(false);
+        painelOpcoes.SetActive(true);
+        // nomezinho.SetActive(true);
     }
 
     public void Quit()
