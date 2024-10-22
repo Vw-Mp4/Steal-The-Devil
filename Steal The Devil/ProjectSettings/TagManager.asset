@@ -6,6 +6,13 @@ TagManager:
   tags:
   - Throwable
   - CinemachineTarget
+  - porta
+  - bau
+  - chave
+  - armario
+  - gaveta
+  - gaveta2
+  - livro
   layers:
   - Default
   - TransparentFX
@@ -14,7 +21,7 @@ TagManager:
   - Water
   - UI
   - Interactable
-  - 
+  - Objects
   - 
   - 
   - 

@@ -1,4 +1,5 @@
-﻿ using UnityEngine;
+﻿using Cinemachine.Utility;
+using UnityEngine;
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
@@ -159,6 +160,8 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+            OnCrawl();
+            
         }
 
         private void LateUpdate()
@@ -388,5 +391,24 @@ namespace StarterAssets
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_controller.center), FootstepAudioVolume);
             }
         }
+        
+        private void OnCrawl()
+        {
+            if(Keyboard.current.ctrlKey.isPressed)
+            {
+                _animator.SetBool("isCrawling", true);
+                _input.move.x = 0;
+                _input.move.y = 0;
+                Debug.Log("AAAAAAAAAAAAAAAA");
+            }
+            else
+            {
+                _animator.SetBool("isCrawling", false);
+            }
+        }
+
+        
+    
     }
+    
 }
