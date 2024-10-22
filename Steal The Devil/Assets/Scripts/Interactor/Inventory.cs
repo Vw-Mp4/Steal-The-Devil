@@ -12,21 +12,21 @@ public class Inventory : MonoBehaviour
     public bool hasKey = false;
     public bool chestOpen = false;
     public float raycastDistance = 2.0f;
-    public float radiusDistance = 3.0f;
-    public float circusDistanece = 2.0f;
     float forceMagnitude = 10f;
     public GameObject chave;
     public GameObject armario;
     public GameObject livro;
+    public GameObject panel;
     public Animator animator;
     public StarterAssetsInputs starterAssetsInputs;
     public Interactor interactor;
     private ThirdPersonController thirdPersonController;
-    public float radius = 3.0f;
+    
     
 
     private void Awake()
     {
+        panel = GameObject.FindGameObjectWithTag("panel");
         livro = GameObject.FindGameObjectWithTag("livro");
         chave = GameObject.FindGameObjectWithTag("chave");
         armario = GameObject.FindGameObjectWithTag("armario");
@@ -34,15 +34,25 @@ public class Inventory : MonoBehaviour
         
     }
 
-
+    private void Start()
+    {
+        panel.SetActive(false);
+    }
     private void Update()
     {
-        
         //Se eu apertar Q, vou ter a chave.
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
+            if(isInsideBookZone)
+            {
+                panel.SetActive(true);
+            }
+            if(!isInsideBookZone)
+            {
+                ///COLOCAR BOTAO UI
+            }
+
             RaycastHit hit;
-            
             if (Physics.Raycast(transform.position, transform.forward, out hit, raycastDistance))
             {
                 if (hit.collider.gameObject == chave)
@@ -51,12 +61,25 @@ public class Inventory : MonoBehaviour
                     hasKey = !hasKey;
                     Debug.DrawLine(transform.position, transform.forward);
                 }
-                if (hit.collider.gameObject == livro)
-                {
-                    Debug.Log("Está lendo livro");
-                }
-
             }
+        }
+    }
+    private bool isInsideBookZone = false;
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("livro"))
+        {
+            isInsideBookZone = true;
+            /*Debug.Log("VOCÊ É UM FILHO DA PUTA");
+            panel.SetActive(true);*/
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.CompareTag("livro"))
+        {
+            isInsideBookZone = false;
+            panel.SetActive(false);
         }
     }
 
@@ -85,6 +108,5 @@ public class Inventory : MonoBehaviour
             }
             
         }
-        
     }
 }

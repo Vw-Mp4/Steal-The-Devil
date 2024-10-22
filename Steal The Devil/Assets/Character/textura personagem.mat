@@ -88,7 +88,7 @@ Material:
     m_Floats:
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _AmbientStrength: 0.2
+    - _AmbientStrength: 0.49
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
     - _BumpScale: 1
@@ -102,11 +102,11 @@ Material:
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _FallofAmount: 0.05
-    - _FresnelSize: 0.45
+    - _FresnelSize: 0.74
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _LightingCutoff: 0.5
+    - _LightingCutoff: 1.18
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
