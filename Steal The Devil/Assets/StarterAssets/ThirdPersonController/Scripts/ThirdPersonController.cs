@@ -406,9 +406,6 @@ namespace StarterAssets
                 _animator.SetBool("isCrawling", false);
             }
         }
-
-        
-    
     }
     
 }
