@@ -13,6 +13,7 @@ TagManager:
   - gaveta
   - gaveta2
   - livro
+  - panel
   layers:
   - Default
   - TransparentFX
