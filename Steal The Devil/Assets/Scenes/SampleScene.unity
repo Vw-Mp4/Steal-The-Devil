@@ -1140,7 +1140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &261360125
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4158,7 +4158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &843890861
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6907,6 +6907,7 @@ MonoBehaviour:
   nomezinho3: {fileID: 1838977726}
   canva: {fileID: 843890860}
   canva2: {fileID: 1931873251}
+  camera: {fileID: 0}
 --- !u!1 &1225891740
 GameObject:
   m_ObjectHideFlags: 0

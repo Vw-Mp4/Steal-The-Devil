@@ -23,7 +23,7 @@ public class PausarManager : MonoBehaviour
     [SerializeField] private GameObject nomezinho3;
     [SerializeField] private GameObject canva;
     [SerializeField] private GameObject canva2;
-    // [SerializeField] private GameObject camera;
+    [SerializeField] private GameObject camera;
     private bool isPaused = false;
 
     
@@ -92,6 +92,7 @@ public class PausarManager : MonoBehaviour
     {
         Time.timeScale = 0;  // Pausa o tempo
         isPaused = true;
+        camera.SetActive(false);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -104,6 +105,12 @@ public class PausarManager : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = false;
+    }
+
+    public void RestartScene()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+        SceneManager.LoadScene(currentSceneName);
     }
 
     public void Sair()
@@ -173,7 +180,7 @@ public class PausarManager : MonoBehaviour
         DisableArrows(arrowsPauseMenu);
         Time.timeScale = 1;
         isPaused = false;
-        //camera.SetActive(true); 
+        camera.SetActive(true); 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         canva.SetActive(false);
